@@ -1,0 +1,7 @@
+# Keep environment variables out of version control
+.env
+
+# Prisma dependenciy files
+node_modules
+package-lock.json
+package.json

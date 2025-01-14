@@ -1,0 +1,26 @@
+{
+  "tasks": {
+    "dev": "deno run -A --watch src/main.ts",
+
+    "prisma": "deno run -A npm:prisma@6.2.1",
+    "prisma:generate": "deno task prisma generate && deno task prisma:patch",
+    "prisma:patch": "deno run -A prisma/patch.ts",
+
+    "migrate": "deno task prisma migrate deploy",
+    "makemigrations": "deno task prisma migrate dev --name",
+
+    "codegen": "deno task prisma:generate"
+  },
+  "imports": {
+    "#database": "./src/database.ts",
+    "#config": "./src/config.ts",
+    "#prisma/client": "./prisma/client.ts",
+    "#bot": "./src/bot/mod.ts",
+
+    "@std/dotenv": "jsr:@std/dotenv@0.225.3",
+    "zod": "https://deno.land/x/zod@v3.22.4/mod.ts",
+    "@std/path": "jsr:@std/path@1.0.8",
+    "@grammy": "https://deno.land/x/grammy@v1.34.0/mod.ts",
+    "@grammy/types": "https://deno.land/x/grammy_types@v3.18.0/mod.ts"
+  }
+}
